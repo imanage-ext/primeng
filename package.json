@@ -1,5 +1,5 @@
 {
-  "name": "primeng",
+  "name": "im-primeng",
   "version": "7.1.0-SNAPSHOT",
   "license": "MIT",
   "scripts": {
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/primefaces/primeng.git"
+    "url": "https://github.com/imanage-ext/primeng"
   },
   "devDependencies": {
     "@angular/animations": "~7.1.0",
