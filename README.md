@@ -18,7 +18,7 @@ See [PrimeNG homepage](http://www.primefaces.org/primeng) for live showcase and 
 
 - The autocomplete component has the option to highlight the first item in the suggestions list. This is set by using the input property autoHighlight. But this will always highlight the first suggestion and hence cause the problem of selecting the first item when Tabbing from one field to the other. But at the same time, the user would like this to be enabled in cases where they start typing and only one suggestion is left and want to select it. To allow this, we have added another input property called **autoHighlightOnlySuggestion**. This will only highlight the first suggestion if it is the only one.
 
-- Two new events, **onKeyDown** and **onDropdownKeyDown** has been added to get the keydown events from the input and the dropdown items. This can be used to manipulate those events, prevent propagation of those events etc.
+- Two new events, **onKeyDown** and **onDropdownKeyDown** have been added to get the keydown events from the input and the dropdown items. This can be used to manipulate those events, prevent propagation of those events etc.
 
 ### Publishing to NPM
 
