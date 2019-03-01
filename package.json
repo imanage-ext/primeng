@@ -1,6 +1,6 @@
 {
   "name": "im-primeng",
-  "version": "7.1.5-2",
+  "version": "7.1.5",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -20,14 +20,14 @@
     "url": "https://github.com/imanage-ext/primeng.git"
   },
   "files": [
-      "components/**/*.d.ts",
-      "components/**/*.js",
-      "components/**/*.js.map",
-      "components/**/*.metadata.json",
-      "components/**/*.d.ts",
-      "resources/**/*",
-      "*.d.ts",
-      "*.js"
+    "components/**/*.d.ts",
+    "components/**/*.js",
+    "components/**/*.js.map",
+    "components/**/*.metadata.json",
+    "components/**/*.d.ts",
+    "resources/**/*",
+    "*.d.ts",
+    "*.js"
   ],
   "devDependencies": {
     "@angular/animations": "~7.1.0",
