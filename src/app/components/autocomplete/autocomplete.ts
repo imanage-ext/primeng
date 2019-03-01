@@ -38,7 +38,7 @@ export const AUTOCOMPLETE_VALUE_ACCESSOR: any = {
                 (click)="handleDropdownClick($event)" *ngIf="dropdown" tabindex="-1"></button>
             <div #panel *ngIf="overlayVisible" class="ui-autocomplete-panel ui-widget ui-widget-content ui-corner-all ui-shadow" [style.max-height]="scrollHeight"
                 [@overlayAnimation]="{value: 'visible', params: {showTransitionParams: showTransitionOptions, hideTransitionParams: hideTransitionOptions}}" (@overlayAnimation.start)="onOverlayAnimationStart($event)" (@overlayAnimation.done)="onOverlayAnimationDone($event)">
-                <ul class="ui-autocomplete-items ui-autocomplete-list ui-widget-content ui-widget ui-corner-all ui-helper-reset">
+                <ul class="ui-autocomplete-items ui-autocomplete-list ui-widget-content ui-widget ui-corner-all ui-helper-reset" (keydown)="onDropdownKeydown($event)">
                     <li *ngFor="let option of suggestions; let idx = index" [ngClass]="{'ui-autocomplete-list-item ui-corner-all':true,'ui-state-highlight':(highlightOption==option)}"
                         (mouseenter)="highlightOnMouseHover ? highlightOption=option : ''" (mouseleave)="highlightOnMouseHover ? highlightOption=null : ''" (click)="selectItem(option)">
                         <span *ngIf="!itemTemplate">{{resolveFieldData(option)}}</span>
@@ -132,6 +132,10 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
 	@Output() onClear: EventEmitter<any> = new EventEmitter();
 
     @Output() onKeyUp: EventEmitter<any> = new EventEmitter();
+
+    @Output() onKeyDown: EventEmitter<any> = new EventEmitter();
+
+    @Output() onDropdownKeyDown: EventEmitter<any> = new EventEmitter();
 
     @Input() field: string;
 
@@ -582,10 +586,15 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
         }
 
         this.inputKeyDown = true;
+        this.onKeyDown.emit(event);
     }
 
     onKeyup(event) {
         this.onKeyUp.emit(event);
+    }
+
+    onDropdownKeydown(event) {
+        this.onDropdownKeyDown.emit(event);
     }
 
     onInputFocus(event) {

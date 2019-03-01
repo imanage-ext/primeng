@@ -1,6 +1,6 @@
 {
   "name": "im-primeng",
-  "version": "7.1.0-SNAPSHOT",
+  "version": "7.1.5-2",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -8,12 +8,27 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build-components": "ngc -p tsconfig-release.json",
+    "clean-assets": "gulp clean",
+    "build-assets": "gulp build-assets",
+    "build-styles": "node-sass src/assets/components -o src/assets/components",
+    "build-redistribute": "npm run build-components && npm run clean-assets && npm run build-assets && npm run build-styles"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/imanage-ext/primeng.git"
   },
+  "files": [
+      "components/**/*.d.ts",
+      "components/**/*.js",
+      "components/**/*.js.map",
+      "components/**/*.metadata.json",
+      "components/**/*.d.ts",
+      "resources/**/*",
+      "*.d.ts",
+      "*.js"
+  ],
   "devDependencies": {
     "@angular/animations": "~7.1.0",
     "@angular/cdk": "~7.1.0",
@@ -64,6 +79,7 @@
     "quill": "1.3.6",
     "web-animations-js": "2.3.1",
     "primeicons": "1.0.0",
-    "primeflex": "1.0.0-rc.1"
+    "primeflex": "1.0.0-rc.1",
+    "node-sass": "^4.5.3"
   }
 }

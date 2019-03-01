@@ -51,3 +51,10 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Built files
+*.js
+*.d.ts
+!gulpfile.js
+!primeng.d.ts
+!primeng.js
