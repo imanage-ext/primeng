@@ -20,6 +20,10 @@ See [PrimeNG homepage](http://www.primefaces.org/primeng) for live showcase and 
 
 - Two new events, **onKeyDown** and **onDropdownKeyDown** have been added to get the keydown events from the input and the dropdown items. This can be used to manipulate those events, prevent propagation of those events etc.
 
+- There are two new Input properties, **headerValue** and **footerValue**. These inputs take string values and if set will show a header and footer item in the dropdown list, respectively.
+
+- Title attributes have been added to the input text and the dropdown list item allowing a tooltip to show on mouse hover. This will be helpful when the value needs to be truncated in the UI.
+
 ### Publishing to NPM
 
 - Make the necesary changes
