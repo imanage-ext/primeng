@@ -24,6 +24,8 @@ See [PrimeNG homepage](http://www.primefaces.org/primeng) for live showcase and 
 
 - Title attributes have been added to the input text and the dropdown list item allowing a tooltip to show on mouse hover. This will be helpful when the value needs to be truncated in the UI.
 
+- Additional Aria attributes have been added to the autocomplete component to enable screen readability of the dropdown list. For proper functioning of this feature, it expects the list items to have a property called 'id'.
+
 ### Publishing to NPM
 
 - Make the necesary changes
