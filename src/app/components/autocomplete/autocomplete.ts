@@ -37,7 +37,7 @@ export const AUTOCOMPLETE_VALUE_ACCESSOR: any = {
             </ul
             ><i *ngIf="loading" class="ui-autocomplete-loader pi pi-spinner pi-spin"></i><button #ddBtn type="button" pButton icon="pi pi-fw pi-caret-down" class="ui-autocomplete-dropdown" [disabled]="disabled"
                 (click)="handleDropdownClick($event)" *ngIf="dropdown" tabindex="-1"></button>
-            <div #panel *ngIf="overlayVisible" class="ui-autocomplete-panel ui-widget ui-widget-content ui-corner-all ui-shadow" [style.max-height]="scrollHeight"
+            <div #panel *ngIf="overlayVisible && ((suggestions && suggestions.length > 0) || noResults)" class="ui-autocomplete-panel ui-widget ui-widget-content ui-corner-all ui-shadow" [style.max-height]="scrollHeight"
                 [@overlayAnimation]="{value: 'visible', params: {showTransitionParams: showTransitionOptions, hideTransitionParams: hideTransitionOptions}}" (@overlayAnimation.start)="onOverlayAnimationStart($event)" (@overlayAnimation.done)="onOverlayAnimationDone($event)">
                 <ul role="listbox" class="ui-autocomplete-items ui-autocomplete-list ui-widget-content ui-widget ui-corner-all ui-helper-reset" (keydown)="onDropdownKeydown($event)">
                     <li *ngIf="headerValue && !noResults && suggestions && suggestions.length > 0" class="ui-autocomplete-list-item ui-corner-all ui-autocomplete-list-header">{{headerValue}}</li>
