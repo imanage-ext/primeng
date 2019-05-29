@@ -10,7 +10,7 @@ Forked from PrimeNG UI Components for Angular
 
 See [PrimeNG homepage](http://www.primefaces.org/primeng) for live showcase and documentation.
 
-### Additional Features in this fork
+### Additional Features in this fork added for Autocomplete Control
 
 - The autocomplete component allows the user to mouse hover over a suggestion in the dropdown and select it by hitting the Tab key. But this can cause accidental updates when keyboard navigating and the mouse pointer is present where the suggestion dropdown shows. A new input property **highlightOnMouseHover** has now been added to the autocomplete component to disable this behavior. This property is set to true by default and will continue to behave as explained above. But if the developer passes the value false to this property, the mouse hover will continue to highlight the suggestion, but will not select it on hitting Tab.
 
@@ -25,6 +25,10 @@ See [PrimeNG homepage](http://www.primefaces.org/primeng) for live showcase and 
 - Title attributes have been added to the input text and the dropdown list item allowing a tooltip to show on mouse hover. This will be helpful when the value needs to be truncated in the UI.
 
 - Additional Aria attributes have been added to the autocomplete component to enable screen readability of the dropdown list. For proper functioning of this feature, it expects the list items to have a property called 'id'.
+
+- The dropdown is shown by default when the focus comes to the input
+
+- Adding a console error fix from https://github.com/primefaces/primeng/commit/0a5343264081404b17f14d0c9f8816f934ba5493
 
 ### Publishing to NPM
 

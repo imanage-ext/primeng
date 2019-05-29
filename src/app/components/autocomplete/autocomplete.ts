@@ -254,7 +254,11 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
     ngAfterViewChecked() {
         //Use timeouts as since Angular 4.2, AfterViewChecked is broken and not called after panel is updated
         if (this.suggestionsUpdated && this.overlay && this.overlay.offsetParent) {
-            setTimeout(() => this.alignOverlay(), 1);
+            setTimeout(() => {
+                if (this.overlay) {
+                    this.alignOverlay();
+                }
+            }, 1);
             this.suggestionsUpdated = false;
         }
 
@@ -414,7 +418,7 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
         this.updateFilledState();
 
         if (focus) {
-            this.focusInput();
+            this.focusInput(true);
         }
     }
 
@@ -489,10 +493,7 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
         this.focusInput();
         let queryValue = this.multiple ? this.multiInputEL.nativeElement.value : this.inputEL.nativeElement.value;
 
-        if (this.dropdownMode === 'blank')
-            this.search(event, '');
-        else if (this.dropdownMode === 'current')
-            this.search(event, queryValue);
+        this.performSearch(queryValue);
 
         this.onDropdownClick.emit({
             originalEvent: event,
@@ -500,10 +501,21 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
         });
     }
 
-    focusInput() {
+    performSearch(queryValue: any = null) {
+        if (!queryValue) {
+            queryValue = this.multiple ? this.multiInputEL.nativeElement.value : this.inputEL.nativeElement.value;
+        }
+
+        if (this.dropdownMode === 'blank')
+            this.search(event, '');
+        else if (this.dropdownMode === 'current')
+            this.search(event, queryValue);
+    }
+
+    focusInput(multipleOnly:boolean = false) {
         if (this.multiple)
             this.multiInputEL.nativeElement.focus();
-        else
+        else if (!multipleOnly)
             this.inputEL.nativeElement.focus();
     }
 
@@ -611,6 +623,7 @@ export class AutoComplete implements AfterViewChecked,AfterContentInit,DoCheck,C
 
     onInputFocus(event) {
         this.focus = true;
+        this.performSearch();
         this.onFocus.emit(event);
     }
 
